@@ -7,8 +7,8 @@ This project was generated with [Serverless Framework](https://www.serverless.co
 - Change the params.yml
 - Change the serverless.yml inside each micro services
 - run npm i to install plugins that we use in this project
-- if you want to use authorizer for using the API, in serverless.yml you can uncommand in line 40 - 49 at severless.yml (optional)
-- if you want to use custom domain for using the API, in serverless.yml you can uncommand in line 70 - 81 at severless.yml (optional)
+- if you want to use authorizer for using the API, in serverless.yml you can uncommand in line 40 - 49 (optional)
+- if you want to use custom domain for using the API, in serverless.yml you can uncommand in line 70 - 81 (optional)
 
 ## Important notice before deploying to Cloud Formation
 
