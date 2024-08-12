@@ -37,15 +37,7 @@ provider:
           - ${param:db-host}
           - ${param:db-name}
           - "?sslmode=verify-full"
-  httpApi:
-    cors: true
-    authorizers:
-      someJwtAuthorizer:
-        type: jwt
-        identitySource: $request.header.Authorization
-        issuerUrl: https://cognito-idp.${opt:region, self:provider.region}.amazonaws.com/${param:UserPoolId}
-        audience: 
-          - '${param:UserPoolClient}'
+
 
 # package:
 #   patterns:
@@ -92,8 +84,7 @@ functions:
           method: POST
           path: /sendNotification
           cors: true
-          # authorizer:
-          #     name: someJwtAuthorizer
+
   create-subscribtion:
     handler: src/create-subscribtion/main.go
     events:
@@ -101,8 +92,7 @@ functions:
           method: POST
           path: /subscribtion
           cors: true
-          authorizer:
-              name: someJwtAuthorizer
+  
   delete-subscribtion:
     handler: src/delete-subscribtion/main.go
     events:
@@ -110,8 +100,7 @@ functions:
           method: DELETE
           path: /subscribtion/{id}
           cors: true
-          authorizer:
-              name: someJwtAuthorizer    
+
               
 plugins:
   - serverless-go-plugin
