@@ -37,7 +37,16 @@ provider:
           - ${param:db-host}
           - ${param:db-name}
           - "?sslmode=verify-full"
-
+  ## authorizer config
+  # httpApi:
+  #   cors: true
+  #   authorizers:
+  #     someJwtAuthorizer:
+  #       type: jwt
+  #       identitySource: $request.header.Authorization
+  #       issuerUrl: https://cognito-idp.${opt:region, self:provider.region}.amazonaws.com/${param:UserPoolId}
+  #       audience: 
+  #         - '${param:UserPoolClient}'
 
 # package:
 #   patterns:
@@ -58,17 +67,18 @@ custom:
     #   GOOS: 'linux'
     #   GOARCH: 'arm64'
     #   CGO_ENABLED: true
-  customDomain:
-    http:
-      domainName: ${param:custom-domain-name}
-      stage: $default
-      basePath: ${opt:stage, self:provider.stage}/pushNotification
-      certificateName: ${param:certificate-name}
-      createRoute53Record: true
-      createRoute53IPv6Record: true
-      endpointType: 'regional'
-      securityPolicy: tls_1_2
-      autoDomain: true
+  #custom domain config
+  # customDomain:
+  #   http:
+  #     domainName: ${param:custom-domain-name}
+  #     stage: $default
+  #     basePath: ${opt:stage, self:provider.stage}/pushNotification
+  #     certificateName: ${param:certificate-name}
+  #     createRoute53Record: true
+  #     createRoute53IPv6Record: true
+  #     endpointType: 'regional'
+  #     securityPolicy: tls_1_2
+  #     autoDomain: true
   # Configures throttling settings for the API Gateway stage
   # They apply to all http endpoints, unless specifically overridden
   apiGatewayThrottling:
@@ -84,7 +94,8 @@ functions:
           method: POST
           path: /sendNotification
           cors: true
-
+          # authorizer:
+          #     name: someJwtAuthorizer
   create-subscribtion:
     handler: src/create-subscribtion/main.go
     events:
@@ -92,7 +103,8 @@ functions:
           method: POST
           path: /subscribtion
           cors: true
-  
+          # authorizer:
+          #     name: someJwtAuthorizer
   delete-subscribtion:
     handler: src/delete-subscribtion/main.go
     events:
@@ -100,7 +112,8 @@ functions:
           method: DELETE
           path: /subscribtion/{id}
           cors: true
-
+          # authorizer:
+          #     name: someJwtAuthorizer    
               
 plugins:
   - serverless-go-plugin

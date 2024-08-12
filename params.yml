@@ -7,3 +7,5 @@ dev:
   certificate-name: "*****************"
   push-notif-public-key: "******************************"
   push-notif-private-key: "**********************"
+  UserPoolClient: "***********"
+  UserPoolId: "*************"
