@@ -1,0 +1,9 @@
+dev:
+  db-name: "****************"
+  db-username: "************"
+  db-password: "*********"
+  db-host: "***********************"
+  custom-domain-name: "*******************"
+  certificate-name: "*****************"
+  push-notif-public-key: "******************************"
+  push-notif-private-key: "**********************"

@@ -7,7 +7,7 @@
 *.dll
 *.so
 *.dylib
-
+.bin
 # Test binary, built with `go test -c`
 *.test
 
@@ -19,7 +19,5 @@
 
 # Go workspace file
 go.work
-go.work.sum
-
-# env file
-.env
+node_modules
+.serverless

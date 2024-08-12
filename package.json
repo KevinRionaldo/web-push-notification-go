@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "serverless-domain-manager": "^7.3.8",
+    "serverless-go-plugin": "^2.4.1"
+  }
+}
