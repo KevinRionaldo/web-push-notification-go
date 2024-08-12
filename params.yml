@@ -1,4 +1,6 @@
 dev:
+  profile: "**************"
+  region: "************"
   db-name: "****************"
   db-username: "************"
   db-password: "*********"
